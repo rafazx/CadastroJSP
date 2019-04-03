@@ -10,6 +10,7 @@
 </head>
 <body>
 	<h1>Cadastro de Produto</h1>
+	<h3>${msg}</h3>
 	<form action="salvarProduto" method="post" class="form-style-1"
 		id="formUser">
 		<ul class="form-style-1">
@@ -19,24 +20,24 @@
 						<td>Código:
 						<td>
 						<td><input type="text" name="id" id="id"
-							readonly="readonly"></td>
+							readonly="readonly" value="${prod.id}"></td>
 					</tr>
 					<tr>
 						<td>Nome:
 						<td>
-						<td><input type="text" name="nome-produto" id="nome-produto"></td>
+						<td><input type="text" name="nome-produto" id="nome-produto" value="${prod.nome}"></td>
 					</tr>
 					<tr>
 						<td>Valor R$:
 						<td>
 						<td><input type="text" name="valor-produto"
-							id="valor-produto"></td>
+							id="valor-produto" value="${prod.valor}"></td>
 					</tr>
 					<tr>
 						<td>Quantidade:
 						<td>
 						<td><input type="text" name="quantidade-produto"
-							id="quantidade-produto"></td>
+							id="quantidade-produto" value="${prod.quantidade}"></td>
 					</tr>
 					<tr>
 						<td><input type="submit" name="cadastrarProduto"
