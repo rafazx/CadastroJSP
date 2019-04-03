@@ -19,7 +19,7 @@ public class DaoProduto {
 		connection = SingleConnection.getConnection();
 	
 	}
-
+	
 	public void inserirProduto(Produto produto){
 		try {
 			String sql ="INSERT into produto (nome , valor , quantidade) VALUES (?,?,?) ";
@@ -76,7 +76,7 @@ public class DaoProduto {
 	
 	public Produto consultarProduto(String id) throws Exception{
 		
-			String sql ="select * from produto where id = '" +id + "'";
+			String sql ="select * from produto where id = " +id;
 			PreparedStatement statement = connection.prepareStatement(sql);
 			ResultSet set = statement.executeQuery();
 			while(set.next()){
@@ -94,7 +94,7 @@ public class DaoProduto {
 	
 	public void atualizarProduto(Produto produto){
 		try {
-			String sql = "update produto set nome = ? , valor = ? , quantidade = ?  where id = "+produto.getId();
+			String sql = "update produto set nome = ? , valor = ? , quantidade = ? , where id = "+produto.getId();
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, produto.getNome());
 			statement.setDouble(2, produto.getValor());

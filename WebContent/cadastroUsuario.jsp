@@ -11,8 +11,7 @@
 <body>
 	<h1>Cadastro de Usuario</h1>
 	<h3>${msg}</h3>
-	<form action="salvarUsuario" method="post" class="form-style-1"
-		id="formUser" onsubmit="return validarCampos() ? true : false">
+	<form action="salvarUsuario" method="post" class="form-style-1" id="formUser">
 		<ul class="form-style-1">
 			<li>
 				<table>
@@ -38,23 +37,21 @@
 					</tr>
 					<tr>
 						<td>Telefone:</td>
-						<td><input type="text" name="telefone" id="telefone"
-							value="${user.telefone}"></td>
+						<td><input type="text" name="telefone" id="telefone" value="${user.telefone}"></td>
 					</tr>
 					<tr>
-						<td><input type="submit" value="Cadastrar"> <input
-							type="submit" value="Cancelar"
-							onclick="document.getElementById(formUser).action= 'salvarUsuario?acao=reset'"></td>
+						<td><input type="submit" value="Cadastrar">
+						<input type="submit" value="Cancelar" onclick="document.getElementById(formUser).action= 'salvarUsuario?acao=reset'"></td>
 					</tr>
 				</table>
 
 			</li>
 		</ul>
 	</form>
-
+	
 	<div class="contanier">
 		<table class="responsive-table">
-			<caption>Usuários Cadastrados</caption>
+		<caption>Usuários Cadastrados</caption>
 			<tr>
 				<th>Id</th>
 				<th>Login</th>
@@ -68,7 +65,7 @@
 
 			<c:forEach items="${usuarios}" var="user">
 				<tr>
-					<td><c:out value="${user.id}"></c:out></td>
+					<td><c:out value="${user.id}" ></c:out></td>
 					<td><c:out value="${user.user}"></c:out></td>
 					<td><c:out value="${user.nome}"></c:out></td>
 					<td><c:out value="${user.telefone}"></c:out></td>
@@ -81,25 +78,5 @@
 			</c:forEach>
 		</table>
 	</div>
-	<script type="text/javascript">
-		function validarCampos() {
-			if (document.getElementById("login").value == '') {
-				alert("Informe o Login");
-				return false;
-			} else if (document.getElementById("senha").value == '') {
-				alert("Informe o Senha");
-				return false;
-			} else if (document.getElementById("nome").value == '') {
-				alert("Informe o Nome");
-				return false;
-			} else if (document.getElementById("telefone").value == '') {
-				alert("Informe o telefone");
-				return false;
-			}
-			
-			return true;
-
-		}
-	</script>
 </body>
 </html>
