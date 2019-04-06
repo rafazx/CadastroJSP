@@ -9,34 +9,37 @@
 <link rel="stylesheet" href="resources/css/cadastro.css">
 </head>
 <body>
+<a href="acessopermitido.jsp">Voltar</a>
 	<h1>Cadastro de Produto</h1>
+	<h3>${msg}</h3>
 	<form action="salvarProduto" method="post" class="form-style-1"
-		id="formUser">
+		id="formUser" onsubmit="return valirdarProdutos() ? true : false">
 		<ul class="form-style-1">
 			<li>
 				<table>
 					<tr>
 						<td>Código:
 						<td>
-						<td><input type="text" name="id" id="id"
-							readonly="readonly"></td>
+						<td><input type="text" name="id" id="id" readonly="readonly"
+							value="${prod.id}"></td>
 					</tr>
 					<tr>
 						<td>Nome:
 						<td>
-						<td><input type="text" name="nome-produto" id="nome-produto"></td>
+						<td><input type="text" name="nome-produto" id="nome-produto"
+							value="${prod.nome}"></td>
 					</tr>
 					<tr>
 						<td>Valor R$:
 						<td>
 						<td><input type="text" name="valor-produto"
-							id="valor-produto"></td>
+							id="valor-produto" value="${prod.valor}"></td>
 					</tr>
 					<tr>
 						<td>Quantidade:
 						<td>
 						<td><input type="text" name="quantidade-produto"
-							id="quantidade-produto"></td>
+							id="quantidade-produto" value="${prod.quantidade}"></td>
 					</tr>
 					<tr>
 						<td><input type="submit" name="cadastrarProduto"
@@ -75,6 +78,23 @@
 
 		</table>
 	</div>
+
+	<script type="text/javascript">
+		function valirdarProdutos(){
+	if (document.getElementById("nome-produto").value == '') {
+			alert("Informe o Nome do Produto");
+			return false;
+		} else if (document.getElementById("valor-produto").value == '') {
+			alert("Informe o valor do produto");
+			return false;
+		} else if (document.getElementById("quantidade-produto").value == '') {
+			alert("Informe a Quantidade");
+			return false;
+		}
+		
+		return true;
+		}
+	</script>
 
 
 </body>

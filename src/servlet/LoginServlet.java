@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 		try {
 		String user= request.getParameter("user");
 		String senha= request.getParameter("senha");
-		BeanCurso curso = new BeanCurso();
+
 		if(daologin.validarLogin(user, senha)){
 			
 				RequestDispatcher dispatcher  =	request.getRequestDispatcher("acessopermitido.jsp");	
